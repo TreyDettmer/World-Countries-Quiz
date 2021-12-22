@@ -289,7 +289,7 @@ var mapData = {
 //{"id":"a0000144","isName":false,"mode":"auto","cols":["Saint Kitts and Nevis"],"path":"kn","dotX":239.4,"dotY":203.4},
 //{"id":"a0000145","isName":false,"mode":"auto","cols":["Saint Lucia"],"path":"lc","dotX":243.2,"dotY":214.6},
 //{"id":"a0000146","isName":false,"mode":"auto","cols":["Saint Vincent and the Grenadines"],"path":"vc","dotX":242.7,"dotY":216.8},
-{"id":"a0000147","isName":false,"mode":"auto","cols":["Samoa"],"path":"ws","dotX":802.8,"dotY":307.7},
+//{"id":"a0000147","isName":false,"mode":"auto","cols":["Samoa"],"path":"ws","dotX":802.8,"dotY":307.7},
 //{"id":"a0000148","isName":false,"mode":"auto","cols":["San Marino"],"path":"sm","dotX":408.5,"dotY":113.9},
 //{"id":"a0000149","isName":false,"mode":"auto","cols":["S\u00e3o Tom\u00e9 and Pr\u00edncipe"],"path":"st","dotX":395.5,"dotY":260.6},
 {"id":"a0000150","isName":false,"mode":"auto","cols":["Saudi Arabia"],"path":"sa","dotX":482.1,"dotY":179.9},
