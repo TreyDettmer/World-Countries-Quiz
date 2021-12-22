@@ -1,0 +1,299 @@
+
+
+:root {
+    --color1: #EAF2E3;
+    --color2: #dad4b6;
+    --color3: #181818;
+    --color4: #181818e3;
+    --ocean: #1da2d8;
+    --darktext: #2d3235;
+    --button: #53784c;
+}
+
+body {
+    /* margin: 0; */
+    font-family: Arial, sans-serif;
+    background-color: var(--ocean);
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+#pageContainer {
+    position: relative;
+    min-height: 100vh;
+  }
+
+#header {
+    width: 100%;
+    background-color: var(--color1);
+    height: auto;
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    color: var(--darktext);
+}
+
+#header h1 {
+    
+    text-align: center;
+    font-size: 2.5rem;
+    margin: .3rem .1rem;   
+}
+#header h2 {
+    text-align: center; 
+    font-size: 15px;  
+    margin: .2rem auto .7rem auto;   
+}
+
+
+#content_wrap {
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center; */
+    /* align-items: center; */
+}
+
+
+
+#gameInfoDiv {
+    
+    background-color: var(--color4);
+    min-width: 100%;
+    color: var(--color1);
+    
+}
+
+#startButtonDiv {
+    padding: 10px 0px 0px 0px;
+    display: flex;
+    align-items: center;
+}
+
+#startButton {
+    margin: auto;
+    border-radius: 6px;
+    border: 2px solid black;
+    background-color: var(--button);
+    color: var(--color1);
+    height: 100%;
+    font-size: 30px;
+    transition-duration: 0.2s;
+}
+#startButton:hover {
+    transform: scale(1.05);
+    color: white;
+    cursor: pointer;
+}
+
+#timerDiv {
+    flex-basis: auto;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#timerText {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+#accuracyDiv {
+    flex-basis: auto;
+    text-align: center;
+}
+
+
+#accuracyText {
+    margin: .3rem auto;
+    font-size: 20px;
+}
+
+
+#promptDiv {
+    text-align: center;
+    height: 40px;
+    padding: 10px 0;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#promptText {
+    margin: 0;
+    padding: 0 .4rem;
+}
+
+#skipButton {
+    display: none;
+    background-color: var(--button);
+    color: var(--color1);
+    border-radius: 6px;
+    border: 2px solid black;
+    width: 70px;
+    height: 30px;
+    flex-basis: auto;
+    cursor: pointer;
+    text-align: center;
+    
+    justify-content: center;
+    align-items: center;
+
+}
+
+#skipButton:hover {
+    transform: scale(1.05);
+    color: white;
+}
+
+@media screen and (max-width: 792px) {
+    #map {
+        background-color: var(--ocean);
+        overflow: scroll;
+        width: 100vw;
+        height: auto;
+        /* width: 2020px;
+        height: 1122px; */
+
+    }
+    #map svg {
+        /* width: 100%;
+        height: 100%; */
+        width: 2020px;
+        height: 1122px;
+        /* transform-origin: 0px 0px; */
+        transition-duration: 100ms;
+        transition-timing-function: ease-out;
+        cursor: pointer;
+    }
+}
+
+@media screen and (min-width: 792px) {
+    #map {
+        background-color: var(--ocean);
+        overflow: scroll;
+        width: 100vw;
+        height: auto;
+        /* width: 2020px;
+        height: 1122px; */
+    }
+    #map svg {
+        /* width: 100%;
+        height: 100%; */
+        width: 2020px;
+        height: 1122px;
+        /* transform-origin: 0px 0px; */
+        transition-duration: 100ms;
+        transition-timing-function: ease-out;
+        cursor: pointer;
+    }
+}
+
+.border {
+    stroke: #000000;
+    stroke-width: 0.2;
+    stroke-opacity: 1;
+}
+.country {
+    fill: #ffff80;
+}
+
+.light-water {
+    fill: #beedff;
+}
+.disputed {
+    fill: #888;    
+}
+.odd {
+    fill: darkviolet;
+}
+
+#ocean {
+    fill: var(--ocean);
+}
+
+
+#helpButtonDiv {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    width: 30px;
+    height: 30px;
+    background-color: whitesmoke;
+    border-radius: 6px;
+    border: 2px solid black;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    z-index: 3;
+    cursor: pointer;
+}
+
+#helpButtonDiv:hover
+{
+    background-color: rgb(209, 209, 209);
+}
+
+#helpMenuDiv {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color1);
+    flex-direction: column;
+    align-items: center;
+}
+
+#helpMenuDiv p {
+    padding: 0rem 2rem;
+}
+
+#clickedCountryInfoDiv {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--color4);
+    color: var(--color1);
+    text-align: center;
+}
+
+
+
+#footer {
+    width: 100%;
+    height: 5.5rem;            /* Footer height */
+    background-color: var(--color4);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#footer p {
+    color: var(--color1);
+    text-align: center;
+}
+
+#footer p a {
+    color: var(--color1);
+    text-align: center;
+}
+
+.sticky-prompt {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: var(--color4);
+    min-width: 100%;
+    color: var(--color1);
+}
+
