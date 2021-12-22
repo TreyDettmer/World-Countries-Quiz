@@ -1,12 +1,11 @@
 {
-  "name": "geographyapp",
+  "name": "World-Countries-Quiz",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Can you locate all of the countries in the world?",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
-  "author": "",
+  "author": "Trey Dettmer",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1"
