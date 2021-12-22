@@ -80,8 +80,9 @@ function update(deltaTime)
     {
         if (isGameRunning)
         {
-            EndGame();
             isGameRunning = false;
+            EndGame();
+            
         }
     }
 
@@ -374,12 +375,27 @@ function GetNextPrompt()
     
 }
 
+function IncrementPromptIndex()
+{
+    if (correctlyGuessedCountries.length != countryList.length)
+    {
+        promptIndex++;
+        promptIndex = (promptIndex % countryList.length + countryList.length) % countryList.length
+        var result = mapData.answers.find(obj => obj.cols[0] == countryList[promptIndex]);
+        while (correctlyGuessedCountries.includes(document.getElementById(result.path)))
+        {
+            promptIndex++;
+            promptIndex = (promptIndex % countryList.length + countryList.length) % countryList.length
+            result = mapData.answers.find(obj => obj.cols[0] == countryList[promptIndex]);
+        }
+    }
+}
+
 function SkipPrompt()
 {
     if (isGameRunning)
     {
-        var country = countryList.shift();
-        countryList[countryList.length] = country;
+        IncrementPromptIndex();
         GetNextPrompt();
     }
 }
@@ -423,7 +439,7 @@ function ClickedOnMap(e)
                     previousGuessedCountry = document.getElementById(result.path);
                     countryPath.style.fill = correctCountryColor;
                     correctGuessCount++;
-                    promptIndex++;
+                    IncrementPromptIndex();
                     GetNextPrompt();
                 }
                 else // incorrect guess
@@ -599,25 +615,36 @@ function ToggleHelpMenu()
 
 // keep help button and prompt at the top of the screen even when scrolled
 $(document).on("scroll",function() {
-    if ($(this).scrollTop() >= helpButtonStickThreshold) {
-        if (helpButtonDiv.style.visibility != "visible")
-        {
-            helpButtonDiv.style.visibility= "visible";
+    if (isGameRunning)
+    {
+        if ($(this).scrollTop() >= helpButtonStickThreshold) {
+            if (helpButtonDiv.style.visibility != "visible")
+            {
+                helpButtonDiv.style.visibility= "visible";
+            }
+        } else {
+            if (helpButtonDiv.style.visibility == "visible" && helpMenuDiv.style.display == "none")
+            {
+                helpButtonDiv.style.visibility = "hidden";
+            }
         }
-    } else {
-        if (helpButtonDiv.style.visibility == "visible" && helpMenuDiv.style.display == "none")
-        {
-            helpButtonDiv.style.visibility = "hidden";
-        }
-    }
 
-    if (window.pageYOffset >= promptStickThreshold ) {
-        $("#promptDiv").addClass('sticky-prompt');
+        if (window.pageYOffset >= promptStickThreshold ) {
+            $("#promptDiv").addClass('sticky-prompt');
+        }
+        else
+        {
+            $("#promptDiv").removeClass('sticky-prompt');
+        } 
     }
     else
     {
         $("#promptDiv").removeClass('sticky-prompt');
-    } 
+        if (helpButtonDiv.style.visibility != "visible")
+        {
+            helpButtonDiv.style.visibility= "visible";
+        }
+    }
 });
 
 // bind events
