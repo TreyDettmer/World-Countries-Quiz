@@ -615,20 +615,21 @@ function ToggleHelpMenu()
 
 // keep help button and prompt at the top of the screen even when scrolled
 $(document).on("scroll",function() {
+    if ($(this).scrollTop() >= helpButtonStickThreshold) {
+        if (helpButtonDiv.style.visibility != "visible")
+        {
+            helpButtonDiv.style.visibility= "visible";
+        }
+    } 
+    else 
+    {
+        if (helpButtonDiv.style.visibility == "visible" && helpMenuDiv.style.display == "none")
+        {
+            helpButtonDiv.style.visibility = "hidden";
+        }
+    }
     if (isGameRunning)
     {
-        if ($(this).scrollTop() >= helpButtonStickThreshold) {
-            if (helpButtonDiv.style.visibility != "visible")
-            {
-                helpButtonDiv.style.visibility= "visible";
-            }
-        } else {
-            if (helpButtonDiv.style.visibility == "visible" && helpMenuDiv.style.display == "none")
-            {
-                helpButtonDiv.style.visibility = "hidden";
-            }
-        }
-
         if (window.pageYOffset >= promptStickThreshold ) {
             $("#promptDiv").addClass('sticky-prompt');
         }
@@ -640,10 +641,6 @@ $(document).on("scroll",function() {
     else
     {
         $("#promptDiv").removeClass('sticky-prompt');
-        if (helpButtonDiv.style.visibility != "visible")
-        {
-            helpButtonDiv.style.visibility= "visible";
-        }
     }
 });
 
