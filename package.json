@@ -1,9 +1,12 @@
 {
+  "homepage": "https://treydettmer.github.io/World-Countries-Quiz",
   "name": "World-Countries-Quiz",
   "version": "1.0.0",
   "description": "Can you locate all of the countries in the world?",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "author": "Trey Dettmer",
   "license": "ISC",
@@ -11,6 +14,7 @@
     "express": "^4.17.1"
   },
   "devDependencies": {
-    "eslint": "^8.4.1"
+    "eslint": "^8.4.1",
+    "gh-pages": "^4.0.0"
   }
 }
